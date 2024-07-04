@@ -8,20 +8,14 @@ try:
     client_socket.connect(server_address)
 
     message = "Hola, servidor TCP"
-    client_socket.sendall(message.encode())
+    client_socket.send(message.encode())
 
     data = client_socket.recv(1024)
     print(f"Respuesta del servidor TCP: {data.decode()}")
 
-
-    server_address = ('127.0.0.1', 54321)
-    client_socket.connect(server_address)
-    client_socket.sendall(message.encode())
-    data = client_socket.recv(1024)
-    print(f"Respuesta del servidor TCP: {data.decode()}")
 
 except Exception as e:
     print(f"Error al enviar/recibir datos: {e}")
 
-finally:
-    client_socket.close()
+#finally:
+    #client_socket.close()

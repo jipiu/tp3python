@@ -1,11 +1,13 @@
 import socket
 
 server_address = ('localhost', 12345)
+#server_address = ("192.2.6.104", 12345)
+
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind(server_address)
 
-server_socket.listen(1)  
+server_socket.listen()  
 
 print(f"Servidor TCP esperando conexiones en {server_address}")
 
@@ -24,5 +26,7 @@ while True:
             response = "Mensaje recibido correctamente"
             connection.sendall(response.encode())
 
-    finally:
-        connection.close()
+    except:
+        print("Algo salio mal")
+    #finally:
+        #connection.close()
